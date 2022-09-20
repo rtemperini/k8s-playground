@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: loadgenerator
+  name: load
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: load
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: load
+    spec:
+      containers:
+      - image: busybox
+        name: busybox
+        command: [ "/bin/sh", "-c", "--" ]
+        args: [ "while true; do wget -q -O- http://php-apache.default.svc.cluster.local; done" ]
