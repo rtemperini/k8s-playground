@@ -1,2 +1,2 @@
 # k8s-playground
-K8s examples
+K8s Onboarding Exercises
